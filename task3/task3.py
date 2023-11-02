@@ -6,9 +6,9 @@ class DevilError(Exception):
 def message_decorator(func):
     def wreaper(*args, **kwargs):
         print('начало выполнение функции')
-        psina = func(*args, **kwargs)
+        x = func(*args, **kwargs)
         print('функция закончила свое выполнение')
-        return psina 
+        return x 
     return wreaper
 
 def time_it(func):
@@ -34,10 +34,10 @@ def catch_exceptions(func):
 @time_it
 @message_decorator 
 @catch_exceptions
-def gnida(x):
+def my_func(x):
     result = x+10
     if result == 666:
         raise DevilError('')
     return result
 
-print(gnida(656))
+print(my_func(656))
